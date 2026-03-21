@@ -1,0 +1,17 @@
+### Input configuration
+# Get input names: swaymsg -t get_inputs
+# Read `man 5 sway-input`
+
+# Example touchpad:
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+
+# Example keyboard:
+#   input "type:keyboard" {
+#       xkb_layout us,bg
+#       xkb_options grp:alt_shift_toggle
+#   }

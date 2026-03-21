@@ -29,21 +29,21 @@
     },
 
     "cpu": {
-        "format": "cpu {usage}%",
+        "format": " {usage}%",
         "interval": 2,
         "tooltip": false
     },
 
     "memory": {
-        "format": "mem {percentage}%",
+        "format": " {percentage}%",
         "interval": 2,
         "tooltip": false
     },
 
     "network": {
-        "format-wifi": "wifi {signalStrength}%",
-        "format-ethernet": "eth",
-        "format-disconnected": "no net",
+        "format-wifi": " {signalStrength}%",
+        "format-ethernet": "",
+        "format-disconnected": "󰤮",
         "tooltip-format-wifi": "{essid} ({signalStrength}%)",
         "tooltip-format-ethernet": "{ifname}: {ipaddr}"
     },

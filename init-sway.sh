@@ -47,17 +47,19 @@ sudo apt install -y fonts-font-awesome fonts-jetbrains-mono fonts-noto-color-emo
 
 # 7. Create Configuration Directories
 echo "Creating config directories..."
-mkdir -p ~/.config/sway
 mkdir -p ~/.config/waybar
 mkdir -p ~/.config/foot
 mkdir -p ~/.config/mako
 
-# 8. Copy Default Sway Config
-# This gives you a working base to customize later.
-if [ ! -f ~/.config/sway/config ]; then
-    cp /etc/sway/config ~/.config/sway/config
-    echo "Default Sway config copied to ~/.config/sway/config"
-fi
+# 8. Link configs from this repo
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+echo "Linking sway config..."
+ln -sfn "$SCRIPT_DIR/configs/sway" ~/.config/sway
+
+echo "Linking waybar config..."
+ln -sf "$SCRIPT_DIR/configs/waybar/config" ~/.config/waybar/config
+ln -sf "$SCRIPT_DIR/configs/waybar/style.css" ~/.config/waybar/style.css
 
 # 9. Clean up
 sudo apt autoremove -y

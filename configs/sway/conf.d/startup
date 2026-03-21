@@ -1,0 +1,4 @@
+### Startup applications
+
+exec_always waybar
+exec mako
