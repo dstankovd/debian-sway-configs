@@ -38,7 +38,7 @@ sudo apt install -y grim slurp wl-clipboard
 # - playerctl: Media control
 # - thunar: File manager
 echo "Installing system controls..."
-sudo apt install -y pavucontrol brightnessctl playerctl thunar
+sudo apt install -y pavucontrol brightnessctl playerctl thunar libnotify-bin
 
 # 6. Install Fonts and Icons
 # Essential for Waybar icons and clean text.
@@ -60,6 +60,13 @@ ln -sfn "$SCRIPT_DIR/configs/sway" ~/.config/sway
 echo "Linking waybar config..."
 ln -sf "$SCRIPT_DIR/configs/waybar/config" ~/.config/waybar/config
 ln -sf "$SCRIPT_DIR/configs/waybar/style.css" ~/.config/waybar/style.css
+
+echo "Linking mako config..."
+mkdir -p ~/.config/mako
+ln -sf "$SCRIPT_DIR/configs/mako/config" ~/.config/mako/config
+
+echo "Linking scripts..."
+ln -sfn "$SCRIPT_DIR/configs/scripts" ~/.config/scripts
 
 # 9. Clean up
 sudo apt autoremove -y
