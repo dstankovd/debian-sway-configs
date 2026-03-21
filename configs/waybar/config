@@ -29,21 +29,21 @@
     },
 
     "cpu": {
-        "format": " {usage}%",
+        "format": "<span size='small' color='#4a4a4a'>cpu </span>{usage}%",
         "interval": 2,
         "tooltip": false
     },
 
     "memory": {
-        "format": " {percentage}%",
+        "format": "<span size='small' color='#4a4a4a'>mem </span>{percentage}%",
         "interval": 2,
         "tooltip": false
     },
 
     "network": {
-        "format-wifi": " {signalStrength}%",
-        "format-ethernet": "",
-        "format-disconnected": "󰤮",
+        "format-wifi": "<span size='small' color='#4a4a4a'>wifi </span>{signalStrength}%",
+        "format-ethernet": "<span size='small' color='#4a4a4a'>eth</span>",
+        "format-disconnected": "<span size='small' color='#4a4a4a'>net off</span>",
         "tooltip-format-wifi": "{essid} ({signalStrength}%)",
         "tooltip-format-ethernet": "{ifname}: {ipaddr}"
     },
@@ -54,10 +54,9 @@
     },
 
     "battery": {
-        "format": "{capacity}%",
-        "format-charging": "{capacity}% +",
-        "format-plugged": "{capacity}%",
-        "format-icons": ["", "", "", "", ""],
+        "format": "<span size='small' color='#4a4a4a'>bat </span>{capacity}%",
+        "format-charging": "<span size='small' color='#4a4a4a'>bat </span>{capacity}% <span size='small' color='#4a4a4a'>chr</span>",
+        "format-plugged": "<span size='small' color='#4a4a4a'>bat </span>{capacity}%",
         "tooltip": false
     }
 }
