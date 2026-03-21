@@ -1,14 +1,11 @@
+@import "../themes/active/waybar.css";
+
 * {
     font-family: "JetBrainsMono Nerd Font Mono", monospace;
     font-size: 12px;
     min-height: 0;
     padding: 0;
     margin: 0;
-}
-
-window#waybar {
-    background-color: rgba(0, 0, 0, 0.55);
-    color: #aaaaaa;
 }
 
 /* ── Workspaces ── */
@@ -18,43 +15,27 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0 5px;
-    color: #555555;           /* empty: dark gray */
     background: transparent;
     border: none;
     border-radius: 0;
     box-shadow: none;
     min-width: 0;
-}
-
-#workspaces button:not(.empty):not(.focused) {
-    color: #888888;           /* has windows, not focused */
-}
-
-#workspaces button.focused {
-    color: #ffffff;           /* focused: bright white */
-}
-
-#workspaces button.urgent {
-    color: #ff6666;
+    padding: 0 5px;
 }
 
 /* ── Sep + Window title ── */
 
 #custom-sep {
-    color: #333333;
     padding: 0 4px;
 }
 
 #window {
-    color: #666666;
     font-size: 11px;
 }
 
 /* ── Clock ── */
 
 #clock {
-    color: #dddddd;
     font-size: 12px;
 }
 
@@ -68,21 +49,4 @@ window#waybar {
 #language,
 #battery {
     padding: 0 8px;
-    color: #888888;
-}
-
-#pulseaudio.muted {
-    color: #555555;
-}
-
-#battery.charging {
-    color: #aaaaaa;
-}
-
-#battery.critical:not(.charging) {
-    color: #ff6666;
-}
-
-#network.disconnected {
-    color: #ff6666;
 }

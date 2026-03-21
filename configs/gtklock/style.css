@@ -1,11 +1,4 @@
-* {
-    font-family: "JetBrainsMono Nerd Font Mono", monospace;
-    color: #c8d0ce;
-}
-
-window {
-    background-color: #1c2a2e;
-}
+@import "../themes/active/gtklock.css";
 
 box#body {
     margin: 12px;
@@ -13,21 +6,13 @@ box#body {
 
 entry {
     background-color: transparent;
-    border: 1px solid #b08848;
     border-radius: 0;
-    color: #c8d0ce;
-    caret-color: #b08848;
     padding: 10px 14px;
     min-width: 260px;
     font-size: 13px;
 }
 
-entry placeholder {
-    color: #4a5e62;
-}
-
 entry:focus {
-    border-color: #c8d0ce;
     outline: none;
     box-shadow: none;
 }
@@ -49,6 +34,5 @@ button {
 }
 
 label#error-label {
-    color: #c0503a;
     font-size: 11px;
 }

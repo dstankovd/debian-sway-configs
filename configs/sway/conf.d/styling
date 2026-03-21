@@ -1,11 +1,4 @@
 ### Styling
-# Palette drawn from the Mount Fuji wallpaper:
-#   #1c2a2e  dark teal  (lake / sky)
-#   #b08848  warm amber (town lights)
-#   #c8d0ce  off-white  (snow cap)
-#   #4a5e62  muted teal (mountains)
-
-font pango:JetBrainsMono Nerd Font Mono 10
 
 default_border pixel 1
 default_floating_border pixel 1
@@ -15,8 +8,4 @@ gaps inner 6
 gaps outer 0
 smart_gaps on
 
-# client.<state>  <border>  <background>  <text>    <indicator>  <child_border>
-client.focused          #b08848  #1c2a2e  #c8d0ce  #b08848  #b08848
-client.focused_inactive #1c2a2e  #1c2a2e  #4a5e62  #1c2a2e  #1c2a2e
-client.unfocused        #1c2a2e  #1c2a2e  #4a5e62  #1c2a2e  #1c2a2e
-client.urgent           #c0503a  #1c2a2e  #c8d0ce  #c0503a  #c0503a
+include ~/.config/themes/active/sway

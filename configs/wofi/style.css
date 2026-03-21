@@ -1,0 +1,39 @@
+@import "../themes/active/wofi.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font Mono", monospace;
+    font-size: 12px;
+}
+
+#input {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 10px 12px;
+    margin: 0;
+    outline: none;
+}
+
+#input:focus {
+    box-shadow: none;
+}
+
+#inner-box,
+#outer-box,
+#scroll {
+    background-color: transparent;
+}
+
+#text {
+    padding: 2px 12px;
+}
+
+#entry {
+    background-color: transparent;
+    padding: 4px 0;
+}
+
+#entry:selected {
+    background-color: transparent;
+    outline: none;
+}

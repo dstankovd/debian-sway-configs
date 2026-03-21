@@ -1,0 +1,24 @@
+/* Flexoki Light — wofi colors */
+
+window {
+    background-color: #FFFCF0;
+    border: 1px solid #D0A215;
+}
+
+#input {
+    color: #100F0F;
+    border-bottom: 1px solid #DAD8CE;
+    caret-color: #D0A215;
+}
+
+#input:focus {
+    border-bottom-color: #D0A215;
+}
+
+#text {
+    color: #878580;
+}
+
+#entry:selected #text {
+    color: #100F0F;
+}

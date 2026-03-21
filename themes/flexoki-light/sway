@@ -1,0 +1,12 @@
+# Flexoki Light — sway colors
+# base:    #FFFCF0  surface: #F2F0E5  overlay: #DAD8CE
+# text:    #100F0F  subtle:  #878580  muted:   #B7B5AC
+# accent:  #D0A215  error:   #D14D41
+
+font pango:JetBrainsMono Nerd Font Mono 10
+
+# client.<state>  <border>  <background>  <text>    <indicator>  <child_border>
+client.focused          #D0A215  #FFFCF0  #100F0F  #D0A215  #D0A215
+client.focused_inactive #DAD8CE  #FFFCF0  #B7B5AC  #DAD8CE  #DAD8CE
+client.unfocused        #F2F0E5  #FFFCF0  #B7B5AC  #F2F0E5  #F2F0E5
+client.urgent           #D14D41  #FFFCF0  #100F0F  #D14D41  #D14D41

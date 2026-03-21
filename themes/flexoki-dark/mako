@@ -1,0 +1,21 @@
+font=JetBrainsMono Nerd Font Mono 11
+background-color=#282726ee
+text-color=#CECDC3
+border-color=#AD8301
+border-size=1
+border-radius=0
+width=280
+padding=10
+margin=8
+anchor=top-right
+default-timeout=3000
+
+[urgency=low]
+border-color=#575653
+
+[urgency=normal]
+border-color=#AD8301
+
+[urgency=high]
+border-color=#AF3029
+default-timeout=0
