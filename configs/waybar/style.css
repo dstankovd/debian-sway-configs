@@ -1,13 +1,14 @@
 * {
-    font-family: "JetBrains Mono", "Font Awesome 6 Free", monospace;
-    font-size: 13px;
+    font-family: monospace;
+    font-size: 12px;
     min-height: 0;
+    padding: 0;
+    margin: 0;
 }
 
 window#waybar {
-    background-color: rgba(20, 20, 28, 0.92);
-    color: #cdd6f4;
-    border-bottom: 2px solid rgba(137, 180, 250, 0.3);
+    background-color: rgba(0, 0, 0, 0.55);
+    color: #aaaaaa;
 }
 
 /* ── Workspaces ── */
@@ -17,113 +18,53 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0 8px;
-    color: #45475a;           /* grayed out: no windows */
+    padding: 0 5px;
+    color: #555555;           /* empty: dark gray */
     background: transparent;
     border: none;
-    border-radius: 4px;
-    min-width: 24px;
-    transition: all 0.15s ease;
+    border-radius: 0;
+    box-shadow: none;
+    min-width: 0;
 }
 
-#workspaces button.persistent {
-    color: #45475a;
+#workspaces button:not(.empty):not(.focused) {
+    color: #888888;           /* has windows, not focused */
 }
 
-#workspaces button.active,
 #workspaces button.focused {
-    color: #89b4fa;           /* highlighted: active workspace */
-    background-color: rgba(137, 180, 250, 0.15);
-    font-weight: bold;
-}
-
-#workspaces button:not(.empty):not(.focused):not(.active) {
-    color: #cdd6f4;           /* visible: has windows but not focused */
+    color: #ffffff;           /* focused: bright white */
 }
 
 #workspaces button.urgent {
-    color: #f38ba8;
-    background-color: rgba(243, 139, 168, 0.15);
+    color: #ff6666;
 }
 
 /* ── Clock ── */
 
 #clock {
-    font-size: 14px;
-    font-weight: bold;
-    color: #cdd6f4;
-    padding: 0 12px;
+    color: #dddddd;
+    font-size: 12px;
 }
 
-/* ── Right modules shared style ── */
+/* ── Right modules ── */
 
 #cpu,
 #memory,
 #network,
 #language,
 #battery {
-    padding: 0 10px;
-    color: #cdd6f4;
-}
-
-/* ── CPU ── */
-
-#cpu {
-    color: #a6e3a1;
-}
-
-#cpu.warning {
-    color: #fab387;
-}
-
-#cpu.critical {
-    color: #f38ba8;
-}
-
-/* ── Memory ── */
-
-#memory {
-    color: #89dceb;
-}
-
-#memory.warning {
-    color: #fab387;
-}
-
-#memory.critical {
-    color: #f38ba8;
-}
-
-/* ── Network ── */
-
-#network {
-    color: #89b4fa;
-}
-
-#network.disconnected {
-    color: #f38ba8;
-}
-
-/* ── Input language ── */
-
-#language {
-    color: #cba6f7;
-}
-
-/* ── Battery ── */
-
-#battery {
-    color: #a6e3a1;
-}
-
-#battery.warning {
-    color: #fab387;
-}
-
-#battery.critical {
-    color: #f38ba8;
+    padding: 0 8px;
+    color: #888888;
 }
 
 #battery.charging {
-    color: #a6e3a1;
+    color: #aaaaaa;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff6666;
+}
+
+#network.disconnected {
+    color: #ff6666;
 }

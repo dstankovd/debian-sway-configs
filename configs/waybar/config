@@ -1,8 +1,9 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 32,
-    "spacing": 4,
+    "height": 24,
+    "spacing": 0,
+    "exclusive": true,
 
     "modules-left": ["sway/workspaces"],
     "modules-center": ["clock"],
@@ -23,46 +24,40 @@
     },
 
     "clock": {
-        "format": "{:%H:%M}",
-        "format-alt": "{:%Y-%m-%d %H:%M:%S}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "format": "{:%A %H:%M}",
+        "format-alt": "{:%Y-%m-%d %H:%M:%S}"
     },
 
     "cpu": {
-        "format": " {usage}%",
+        "format": "cpu {usage}%",
         "interval": 2,
         "tooltip": false
     },
 
     "memory": {
-        "format": " {percentage}%",
+        "format": "mem {percentage}%",
         "interval": 2,
-        "tooltip-format": "{used:0.1f}G / {total:0.1f}G"
+        "tooltip": false
     },
 
     "network": {
-        "format-wifi": " {signalStrength}%",
-        "format-ethernet": " {ipaddr}",
-        "format-disconnected": "⚠ Disconnected",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%) via {ifname}",
-        "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
-        "tooltip-format-disconnected": "No network"
+        "format-wifi": "wifi {signalStrength}%",
+        "format-ethernet": "eth",
+        "format-disconnected": "no net",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}"
     },
 
     "sway/language": {
-        "format": " {}",
+        "format": "{}",
         "tooltip": false
     },
 
     "battery": {
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format": "{capacity}%",
+        "format-charging": "{capacity}% +",
+        "format-plugged": "{capacity}%",
         "format-icons": ["", "", "", "", ""],
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "tooltip-format": "{timeTo}"
+        "tooltip": false
     }
 }
