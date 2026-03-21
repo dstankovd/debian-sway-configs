@@ -1,7 +1,9 @@
 ### Idle configuration
 # Read `man swayidle` for options
 
-exec swayidle -w \
+exec_always pkill swayidle; swayidle -w \
+    timeout 120 'brightnessctl -s set 20%' \
+    resume 'brightnessctl -r' \
     timeout 300 '~/.config/scripts/lock.sh' \
     timeout 600 'swaymsg "output * power off"' \
     resume 'swaymsg "output * power on"' \
