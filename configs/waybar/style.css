@@ -1,0 +1,129 @@
+* {
+    font-family: "JetBrains Mono", "Font Awesome 6 Free", monospace;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(20, 20, 28, 0.92);
+    color: #cdd6f4;
+    border-bottom: 2px solid rgba(137, 180, 250, 0.3);
+}
+
+/* ── Workspaces ── */
+
+#workspaces {
+    padding: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: #45475a;           /* grayed out: no windows */
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    min-width: 24px;
+    transition: all 0.15s ease;
+}
+
+#workspaces button.persistent {
+    color: #45475a;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    color: #89b4fa;           /* highlighted: active workspace */
+    background-color: rgba(137, 180, 250, 0.15);
+    font-weight: bold;
+}
+
+#workspaces button:not(.empty):not(.focused):not(.active) {
+    color: #cdd6f4;           /* visible: has windows but not focused */
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+    background-color: rgba(243, 139, 168, 0.15);
+}
+
+/* ── Clock ── */
+
+#clock {
+    font-size: 14px;
+    font-weight: bold;
+    color: #cdd6f4;
+    padding: 0 12px;
+}
+
+/* ── Right modules shared style ── */
+
+#cpu,
+#memory,
+#network,
+#language,
+#battery {
+    padding: 0 10px;
+    color: #cdd6f4;
+}
+
+/* ── CPU ── */
+
+#cpu {
+    color: #a6e3a1;
+}
+
+#cpu.warning {
+    color: #fab387;
+}
+
+#cpu.critical {
+    color: #f38ba8;
+}
+
+/* ── Memory ── */
+
+#memory {
+    color: #89dceb;
+}
+
+#memory.warning {
+    color: #fab387;
+}
+
+#memory.critical {
+    color: #f38ba8;
+}
+
+/* ── Network ── */
+
+#network {
+    color: #89b4fa;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+/* ── Input language ── */
+
+#language {
+    color: #cba6f7;
+}
+
+/* ── Battery ── */
+
+#battery {
+    color: #a6e3a1;
+}
+
+#battery.warning {
+    color: #fab387;
+}
+
+#battery.critical {
+    color: #f38ba8;
+}
+
+#battery.charging {
+    color: #a6e3a1;
+}
