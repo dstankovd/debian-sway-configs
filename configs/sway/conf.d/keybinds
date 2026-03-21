@@ -80,13 +80,21 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Media keys
-bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+# Media keys (XF86 keysyms — sent by most laptops)
+bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym --locked XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+# F-key fallbacks (in case the above don't fire)
+bindsym --locked F1 exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked F2 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym --locked F3 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym --locked F4 exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym --locked F5 exec brightnessctl set 5%-
+bindsym --locked F6 exec brightnessctl set 5%+
 
 # Screenshot (saved to ~/Pictures/Screenshots/)
 bindsym Print exec mkdir -p ~/Pictures/Screenshots && grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
