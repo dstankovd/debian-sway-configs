@@ -63,10 +63,16 @@ window#waybar {
 #cpu,
 #memory,
 #network,
+#pulseaudio,
+#backlight,
 #language,
 #battery {
     padding: 0 8px;
     color: #888888;
+}
+
+#pulseaudio.muted {
+    color: #555555;
 }
 
 #battery.charging {

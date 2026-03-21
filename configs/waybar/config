@@ -7,7 +7,7 @@
 
     "modules-left": ["sway/workspaces", "custom/sep", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["cpu", "memory", "network", "sway/language", "battery"],
+    "modules-right": ["cpu", "memory", "network", "pulseaudio", "backlight", "sway/language", "battery"],
 
     "custom/sep": {
         "format": "|",
@@ -41,21 +41,39 @@
     "cpu": {
         "format": "<span size='small' color='#4a4a4a'>cpu </span>{usage}%",
         "interval": 2,
-        "tooltip": false
+        "tooltip": true,
+        "tooltip-format": "Load: {load}\n{avg_frequency}GHz avg"
     },
 
     "memory": {
         "format": "<span size='small' color='#4a4a4a'>mem </span>{percentage}%",
         "interval": 2,
-        "tooltip": false
+        "tooltip": true,
+        "tooltip-format": "RAM: {used}GiB / {total}GiB\nSwap: {swapUsed}GiB / {swapTotal}GiB"
     },
 
     "network": {
         "format-wifi": "<span size='small' color='#4a4a4a'>wifi </span>{signalStrength}%",
         "format-ethernet": "<span size='small' color='#4a4a4a'>eth</span>",
         "format-disconnected": "<span size='small' color='#4a4a4a'>net off</span>",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}",
         "tooltip-format-ethernet": "{ifname}: {ipaddr}"
+    },
+
+    "pulseaudio": {
+        "format": "<span size='small' color='#4a4a4a'>vol </span>{volume}%",
+        "format-muted": "<span size='small' color='#4a4a4a'>vol </span>muted",
+        "tooltip": false,
+        "on-click": "pavucontrol",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+    },
+
+    "backlight": {
+        "format": "<span size='small' color='#4a4a4a'>bri </span>{percent}%",
+        "tooltip": false,
+        "on-scroll-up": "brightnessctl set 2%+",
+        "on-scroll-down": "brightnessctl set 2%-"
     },
 
     "sway/language": {
@@ -67,6 +85,7 @@
         "format": "<span size='small' color='#4a4a4a'>bat </span>{capacity}%",
         "format-charging": "<span size='small' color='#4a4a4a'>bat </span>{capacity}% <span size='small' color='#4a4a4a'>chr</span>",
         "format-plugged": "<span size='small' color='#4a4a4a'>bat </span>{capacity}%",
-        "tooltip": false
+        "tooltip": true,
+        "tooltip-format": "{time} remaining • {power}W"
     }
 }
