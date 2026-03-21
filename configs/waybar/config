@@ -5,9 +5,19 @@
     "spacing": 0,
     "exclusive": true,
 
-    "modules-left": ["sway/workspaces"],
+    "modules-left": ["sway/workspaces", "custom/sep", "sway/window"],
     "modules-center": ["clock"],
     "modules-right": ["cpu", "memory", "network", "sway/language", "battery"],
+
+    "custom/sep": {
+        "format": "|",
+        "tooltip": false
+    },
+
+    "sway/window": {
+        "max-length": 60,
+        "tooltip": false
+    },
 
     "sway/workspaces": {
         "disable-scroll": true,

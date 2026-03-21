@@ -2,6 +2,10 @@
 # Read `man 5 sway` for for_window and assign syntax
 # Get app IDs: swaymsg -t get_tree | grep app_id
 
+# Remove titlebars from all windows (Wayland + X11)
+for_window [app_id=".*"] border pixel 1
+for_window [class=".*"] border pixel 1
+
 # Examples:
 #   for_window [app_id="firefox"] inhibit_idle fullscreen
 #   assign [app_id="thunar"] workspace number 3

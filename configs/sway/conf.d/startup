@@ -1,4 +1,4 @@
 ### Startup applications
 
-exec_always waybar
+exec_always pkill -x waybar; waybar
 exec mako

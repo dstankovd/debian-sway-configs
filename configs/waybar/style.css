@@ -39,6 +39,18 @@ window#waybar {
     color: #ff6666;
 }
 
+/* ── Sep + Window title ── */
+
+#custom-sep {
+    color: #333333;
+    padding: 0 4px;
+}
+
+#window {
+    color: #666666;
+    font-size: 11px;
+}
+
 /* ── Clock ── */
 
 #clock {

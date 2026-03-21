@@ -2,16 +2,14 @@
 # Get input names: swaymsg -t get_inputs
 # Read `man 5 sway-input`
 
-# Example touchpad:
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
+input "type:keyboard" {
+    xkb_layout us,bg
+    xkb_variant ,phonetic
+    xkb_options grp:lalt_lshift_toggle
+}
 
-# Example keyboard:
-#   input "type:keyboard" {
-#       xkb_layout us,bg
-#       xkb_options grp:alt_shift_toggle
-#   }
+input "type:touchpad" {
+    natural_scroll enabled
+    tap enabled
+    dwt enabled
+}
