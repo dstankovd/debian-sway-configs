@@ -7,7 +7,7 @@
 
 set -e
 
-REPO="$(cd "$(dirname "$0")" && pwd)"
+REPO="$(cd "$(dirname "$0")/.." && pwd)"
 
 link() {
     local src="$1" dst="$2"
@@ -30,7 +30,7 @@ link "$REPO/configs/sway"              ~/.config/sway
 link "$REPO/configs/waybar/config"     ~/.config/waybar/config
 link "$REPO/configs/waybar/style.css"  ~/.config/waybar/style.css
 link "$REPO/configs/gtklock/style.css" ~/.config/gtklock/style.css
-link "$REPO/configs/scripts"           ~/.config/scripts
+link "$REPO/scripts"                   ~/.config/scripts
 link "$REPO/configs/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
 link "$REPO/configs/wofi/config"       ~/.config/wofi/config
 # Generate combined wofi CSS (wofi uses load_from_data so @import paths break)

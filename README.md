@@ -22,10 +22,10 @@ Sway setup for Debian 13 (Trixie).
 
 ```bash
 # 1. Install packages
-./install.sh
+./install/packages.sh
 
 # 2. Link configs
-./link-configs.sh
+./install/link-configs.sh
 
 # 3. Set theme (flexoki-dark or flexoki-light)
 ~/.config/scripts/switch-theme.sh flexoki-dark
@@ -35,12 +35,12 @@ Reboot or start sway. If you're on NVIDIA, launch with `sway --unsupported-gpu`.
 
 ## Extras
 
-Individual scripts under `extras/` for things not in the Debian repos:
+Individual scripts under `install/extras/` for things not in the Debian repos:
 
 ```bash
-extras/install-vscode.sh
-extras/install-neovim.sh
-extras/install-lazygit.sh
+install/extras/install-vscode.sh
+install/extras/install-neovim.sh
+install/extras/install-lazygit.sh
 ```
 
 ## Themes

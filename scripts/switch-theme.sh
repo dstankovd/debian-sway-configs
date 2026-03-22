@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO="$(cd "$(dirname "$(readlink -f "$0")")/../.." && pwd)"
+REPO="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)"
 THEMES="$REPO/themes"
 
 if [ -z "$1" ]; then

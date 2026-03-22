@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO="$(cd "$(dirname "$(readlink -f "$0")")/../.." && pwd)"
+REPO="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)"
 THEMES_DIR="$REPO/themes"
 
 # ANSI colors (uses terminal palette — auto-matches active theme)
@@ -79,7 +79,7 @@ while true; do
             clear
             if [ "$selected_theme" != "$current" ]; then
                 echo "Applying: $selected_theme"
-                "$REPO/configs/scripts/switch-theme.sh" "$selected_theme"
+                "$REPO/scripts/switch-theme.sh" "$selected_theme"
             fi
             exit 0
             ;;
