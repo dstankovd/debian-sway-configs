@@ -16,7 +16,15 @@ link() {
     echo "  linked $dst"
 }
 
+DEFAULT_THEME="flexoki-dark"
+
 echo "--- Linking configs ---"
+
+# Set default theme if none is active
+if [ ! -e "$REPO/themes/active" ]; then
+    echo "  no active theme, defaulting to $DEFAULT_THEME"
+    ln -sfn "$REPO/themes/$DEFAULT_THEME" "$REPO/themes/active"
+fi
 
 link "$REPO/configs/sway"              ~/.config/sway
 link "$REPO/configs/waybar/config"     ~/.config/waybar/config
@@ -28,7 +36,7 @@ link "$REPO/configs/wofi/config"       ~/.config/wofi/config
 # Generate combined wofi CSS (wofi uses load_from_data so @import paths break)
 { cat "$REPO/themes/active/wofi.css"; grep -v '@import' "$REPO/configs/wofi/style.css"; } > ~/.config/wofi/style.css
 echo "  generated ~/.config/wofi/style.css"
-link "$REPO/configs/gtklock/theme.css" ~/.config/gtklock/theme.css
+link "$REPO/configs/gtklock/theme.css"  ~/.config/gtklock/theme.css
 link "$REPO/themes"                    ~/.config/themes
 
 # mako config points at active theme
