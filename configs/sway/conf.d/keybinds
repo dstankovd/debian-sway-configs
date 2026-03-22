@@ -5,6 +5,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+w kill
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+c reload
+bindsym $mod+Shift+t exec alacritty --title "Change theme" -e ~/.config/scripts/theme-picker.sh
 bindsym $mod+l exec ~/.config/scripts/lock.sh
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 floating_modifier $mod normal

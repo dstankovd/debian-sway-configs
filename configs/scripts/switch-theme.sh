@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO="$(cd "$(dirname "$0")/../.." && pwd)"
+REPO="$(cd "$(dirname "$(readlink -f "$0")")/../.." && pwd)"
 THEMES="$REPO/themes"
 
 if [ -z "$1" ]; then
@@ -25,9 +25,13 @@ ln -sfn "$THEMES/$THEME" "$THEMES/active"
 # Update mako config symlink
 ln -sf "$THEMES/active/mako" ~/.config/mako/config
 
-# Reload everything
+# Trigger alacritty config reload in all open windows
+touch ~/.config/alacritty/alacritty.toml
+
+# Reload sway (exec_always in startup handles waybar restart)
 swaymsg reload
-pkill -x waybar; waybar &
+
+# Reload mako
 makoctl reload
 
 echo "Done."

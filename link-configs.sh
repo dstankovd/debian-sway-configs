@@ -23,7 +23,7 @@ link "$REPO/configs/waybar/config"     ~/.config/waybar/config
 link "$REPO/configs/waybar/style.css"  ~/.config/waybar/style.css
 link "$REPO/configs/gtklock/style.css" ~/.config/gtklock/style.css
 link "$REPO/configs/scripts"           ~/.config/scripts
-link "$REPO/configs/foot/foot.ini"     ~/.config/foot/foot.ini
+link "$REPO/configs/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
 link "$REPO/configs/wofi/config"       ~/.config/wofi/config
 link "$REPO/configs/wofi/style.css"    ~/.config/wofi/style.css
 link "$REPO/themes"                    ~/.config/themes

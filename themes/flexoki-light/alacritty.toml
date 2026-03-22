@@ -1,0 +1,33 @@
+# Flexoki Light — alacritty colors
+
+[colors.primary]
+background = "#FFFCF0"
+foreground = "#100F0F"
+
+[colors.cursor]
+text   = "#FFFCF0"
+cursor = "#D0A215"
+
+[colors.selection]
+text       = "#FFFCF0"
+background = "#D0A215"
+
+[colors.normal]
+black   = "#1C1B1A"
+red     = "#AF3029"
+green   = "#66800B"
+yellow  = "#AD8301"
+blue    = "#205EA6"
+magenta = "#A02F6F"
+cyan    = "#24837B"
+white   = "#CECDC3"
+
+[colors.bright]
+black   = "#403E3C"
+red     = "#D14D41"
+green   = "#879A39"
+yellow  = "#D0A215"
+blue    = "#4385BE"
+magenta = "#CE5D97"
+cyan    = "#3AA99F"
+white   = "#E6E4D9"

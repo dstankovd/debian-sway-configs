@@ -1,0 +1,21 @@
+import = ["~/.config/themes/active/alacritty.toml"]
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+bold   = { family = "JetBrainsMono Nerd Font Mono", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font Mono", style = "Italic" }
+size   = 11.0
+
+[window]
+padding = { x = 12, y = 12 }
+decorations = "None"
+opacity = 0.95
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+
+[mouse]
+hide_when_typing = true
+
+[selection]
+save_to_clipboard = true
