@@ -25,7 +25,10 @@ link "$REPO/configs/gtklock/style.css" ~/.config/gtklock/style.css
 link "$REPO/configs/scripts"           ~/.config/scripts
 link "$REPO/configs/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
 link "$REPO/configs/wofi/config"       ~/.config/wofi/config
-link "$REPO/configs/wofi/style.css"    ~/.config/wofi/style.css
+# Generate combined wofi CSS (wofi uses load_from_data so @import paths break)
+{ cat "$REPO/themes/active/wofi.css"; grep -v '@import' "$REPO/configs/wofi/style.css"; } > ~/.config/wofi/style.css
+echo "  generated ~/.config/wofi/style.css"
+link "$REPO/configs/gtklock/theme.css" ~/.config/gtklock/theme.css
 link "$REPO/themes"                    ~/.config/themes
 
 # mako config points at active theme

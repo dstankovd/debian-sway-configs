@@ -1,4 +1,4 @@
-@import "../themes/active/gtklock.css";
+@import "./theme.css";
 
 box#body {
     margin: 12px;

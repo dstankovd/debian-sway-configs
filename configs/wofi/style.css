@@ -1,4 +1,4 @@
-@import "../themes/active/wofi.css";
+@import "./theme.css";
 
 * {
     font-family: "JetBrainsMono Nerd Font Mono", monospace;
