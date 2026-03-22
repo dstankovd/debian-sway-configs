@@ -20,7 +20,7 @@ echo "Installing screenshot and clipboard tools..."
 sudo apt install -y grim slurp wl-clipboard
 
 echo "Installing system controls..."
-sudo apt install -y pavucontrol brightnessctl playerctl thunar libnotify-bin
+sudo apt install -y pavucontrol brightnessctl playerctl thunar libnotify-bin power-profiles-daemon
 
 echo "Installing fonts..."
 sudo apt install -y fonts-font-awesome fonts-jetbrains-mono fonts-noto-color-emoji

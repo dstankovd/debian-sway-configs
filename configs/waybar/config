@@ -86,6 +86,7 @@
         "format-charging": "<span size='small'>bat </span>{capacity}% <span size='small'>chr</span>",
         "format-plugged": "<span size='small'>bat </span>{capacity}%",
         "tooltip": true,
-        "tooltip-format": "{time} remaining • {power}W"
+        "tooltip-format": "{time} remaining • {power}W",
+        "on-click": "alacritty --title 'Power Profile' -e ~/.config/scripts/power-profile-picker.sh"
     }
 }
