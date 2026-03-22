@@ -38,6 +38,8 @@ link "$REPO/configs/wofi/config"       ~/.config/wofi/config
 echo "  generated ~/.config/wofi/style.css"
 link "$REPO/configs/gtklock/theme.css"  ~/.config/gtklock/theme.css
 link "$REPO/themes"                    ~/.config/themes
+link "$REPO/themes/active/gtk-settings.ini" ~/.config/gtk-3.0/settings.ini
+link "$REPO/themes/active/gtk-settings.ini" ~/.config/gtk-4.0/settings.ini
 
 # mako config points at active theme
 ln -sf "$REPO/themes/active/mako" ~/.config/mako/config

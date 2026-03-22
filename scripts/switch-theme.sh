@@ -31,6 +31,21 @@ ln -sfn "$THEMES/active/gtklock.css" "$REPO/configs/gtklock/theme.css"
 # Generate combined wofi CSS (wofi uses load_from_data so @import paths break)
 { cat "$THEMES/active/wofi.css"; grep -v '@import' "$REPO/configs/wofi/style.css"; } > ~/.config/wofi/style.css
 
+# Apply GTK settings live via gsettings (affects running apps immediately)
+GTK_INI="$THEMES/active/gtk-settings.ini"
+if [ -f "$GTK_INI" ]; then
+    GTK_THEME=$(awk -F'=' '/^gtk-theme-name/{gsub(/ /,"",$2); print $2}' "$GTK_INI")
+    PREFER_DARK=$(awk -F'=' '/^gtk-application-prefer-dark-theme/{gsub(/ /,"",$2); print $2}' "$GTK_INI")
+    GTK_FONT=$(awk -F'=' '/^gtk-font-name/{sub(/^[[:space:]]*/,"",$2); print $2}' "$GTK_INI")
+    [ -n "$GTK_THEME" ] && gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
+    [ -n "$GTK_FONT" ]  && gsettings set org.gnome.desktop.interface font-name "$GTK_FONT"
+    if [ "$PREFER_DARK" = "1" ]; then
+        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    else
+        gsettings set org.gnome.desktop.interface color-scheme 'default'
+    fi
+fi
+
 # Trigger alacritty config reload in all open windows
 touch ~/.config/alacritty/alacritty.toml
 
