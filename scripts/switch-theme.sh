@@ -25,6 +25,11 @@ ln -sfn "$THEMES/$THEME" "$THEMES/active"
 # Update mako config symlink
 ln -sf "$THEMES/active/mako" ~/.config/mako/config
 
+# Update swayosd theme symlink and restart server to reload CSS
+mkdir -p ~/.config/swayosd
+ln -sf "$THEMES/active/swayosd.css" ~/.config/swayosd/style.css
+pkill -x swayosd-server 2>/dev/null; swayosd-server &
+
 # Update gtklock theme symlink
 ln -sfn "$THEMES/active/gtklock.css" "$REPO/configs/gtklock/theme.css"
 

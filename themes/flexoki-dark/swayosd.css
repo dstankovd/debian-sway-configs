@@ -1,0 +1,28 @@
+/* Flexoki Dark — swayosd colors */
+
+window {
+    background-color: rgba(40, 39, 38, 0.92);
+    color: #CECDC3;
+    border-radius: 8px;
+}
+
+#container {
+    padding: 6px 10px;
+}
+
+image.-symbolic {
+    -gtk-icon-size: 28px;
+    color: #CECDC3;
+}
+
+progressbar,
+progressbar trough {
+    min-height: 6px;
+    border-radius: 3px;
+    background-color: #403E3C;
+}
+
+progressbar progress {
+    background-color: #AD8301;
+    border-radius: 3px;
+}

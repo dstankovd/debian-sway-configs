@@ -14,7 +14,7 @@ echo "Installing Sway and XWayland..."
 sudo apt install -y sway xwayland swaylock swayidle gtklock
 
 echo "Installing Wayland UI utilities..."
-sudo apt install -y waybar wofi mako-notifier alacritty gnome-themes-extra
+sudo apt install -y waybar wofi mako-notifier alacritty gnome-themes-extra swayosd
 
 echo "Installing screenshot and clipboard tools..."
 sudo apt install -y grim slurp wl-clipboard

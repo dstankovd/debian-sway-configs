@@ -45,4 +45,9 @@ link "$REPO/themes/active/gtk-settings.ini" ~/.config/gtk-4.0/settings.ini
 ln -sf "$REPO/themes/active/mako" ~/.config/mako/config
 echo "  linked ~/.config/mako/config"
 
+# swayosd CSS points at active theme
+mkdir -p ~/.config/swayosd
+ln -sf "$REPO/themes/active/swayosd.css" ~/.config/swayosd/style.css
+echo "  linked ~/.config/swayosd/style.css"
+
 echo "--- Done! ---"

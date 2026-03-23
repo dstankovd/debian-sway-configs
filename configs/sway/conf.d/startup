@@ -2,3 +2,4 @@
 
 exec_always pkill -x waybar; waybar
 exec mako
+exec_always pkill -x swayosd-server; swayosd-server
