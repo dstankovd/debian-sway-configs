@@ -25,6 +25,14 @@ window#waybar {
     color: #343331;
 }
 
+#mpris {
+    color: #6F6E69;
+}
+
+#mpris.paused {
+    color: #575653;
+}
+
 #window {
     color: #575653;
 }

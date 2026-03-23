@@ -7,7 +7,7 @@
 
     "modules-left": ["sway/workspaces", "custom/sep", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["cpu", "memory", "network", "pulseaudio", "backlight", "sway/language", "battery"],
+    "modules-right": ["mpris", "cpu", "memory", "network", "pulseaudio", "backlight", "sway/language", "battery"],
 
     "custom/sep": {
         "format": "|",
@@ -36,6 +36,14 @@
     "clock": {
         "format": "{:%A %H:%M}",
         "format-alt": "{:%Y-%m-%d %H:%M:%S}"
+    },
+
+    "mpris": {
+        "format": "{artist} — {title}",
+        "format-paused": "{artist} — {title}",
+        "format-stopped": "",
+        "max-length": 45,
+        "tooltip": false
     },
 
     "cpu": {
