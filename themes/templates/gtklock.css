@@ -1,0 +1,25 @@
+window {
+    background-color: #${BASE};
+}
+
+* {
+    color: #${TEXT};
+}
+
+entry {
+    border: 1px solid #${ACCENT};
+    color: #${TEXT};
+    caret-color: #${ACCENT};
+}
+
+entry:focus {
+    border-color: #${TEXT};
+}
+
+entry placeholder {
+    color: #${MUTED};
+}
+
+label#error-label {
+    color: #${RED};
+}

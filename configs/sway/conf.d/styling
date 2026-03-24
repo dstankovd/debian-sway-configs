@@ -8,4 +8,4 @@ gaps inner 6
 gaps outer 0
 smart_gaps on
 
-include ~/.config/themes/active/sway
+include ~/.config/sway/colors

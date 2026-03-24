@@ -1,21 +1,28 @@
-@import "./theme.css";
-
 * {
-    font-family: "JetBrainsMono Nerd Font Mono", monospace;
-    font-size: 12px;
+    font-family: "Cascadia Mono", monospace;
+    font-size: 14px;
+}
+
+window {
+    background-color: #${BASE};
+    border: 1px solid #${ACCENT};
 }
 
 #input {
     background-color: transparent;
     border: none;
+    border-bottom: 1px solid #${OVERLAY};
     border-radius: 0;
     padding: 10px 12px;
     margin: 0;
     outline: none;
+    color: #${TEXT};
+    caret-color: #${ACCENT};
 }
 
 #input:focus {
     box-shadow: none;
+    border-bottom-color: #${ACCENT};
 }
 
 #inner-box,
@@ -26,6 +33,7 @@
 
 #text {
     padding: 2px 12px;
+    color: #${SUBTLE};
 }
 
 #entry {
@@ -36,4 +44,8 @@
 #entry:selected {
     background-color: transparent;
     outline: none;
+}
+
+#entry:selected #text {
+    color: #${TEXT};
 }

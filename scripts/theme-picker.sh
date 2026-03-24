@@ -14,12 +14,12 @@ RESET='\e[0m'
 themes=()
 for d in "$THEMES_DIR"/*/; do
     name="$(basename "$d")"
-    [ "$name" = "active" ] && continue
+    [ "$name" = "templates" ] && continue
     themes+=("$name")
 done
 
 # Detect current active theme
-current="$(basename "$(readlink "$THEMES_DIR/active")")"
+current="$(cat ~/.config/themes/current 2>/dev/null)"
 
 # Start cursor on the active theme
 selected=0

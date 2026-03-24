@@ -23,7 +23,7 @@ echo "Installing system controls..."
 sudo apt install -y pavucontrol brightnessctl playerctl thunar libnotify-bin power-profiles-daemon
 
 echo "Installing fonts..."
-sudo apt install -y fonts-font-awesome fonts-jetbrains-mono fonts-noto-color-emoji
+sudo apt install -y fonts-cascadia-code fonts-noto-color-emoji
 
 sudo apt autoremove -y
 

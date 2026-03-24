@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # =============================================================================
-# Link configs from this repo to ~/.config
+# Link non-themed configs from this repo to ~/.config, then apply active theme.
 # Safe to re-run — symlinks are updated in place.
 # =============================================================================
 
@@ -12,42 +12,26 @@ REPO="$(cd "$(dirname "$0")/.." && pwd)"
 link() {
     local src="$1" dst="$2"
     mkdir -p "$(dirname "$dst")"
-    ln -sfn "$src" "$dst" 2>/dev/null || true
+    ln -sfn "$src" "$dst"
     echo "  linked $dst"
 }
 
-DEFAULT_THEME="flexoki-dark"
-
 echo "--- Linking configs ---"
 
-# Set default theme if none is active
-if [ ! -e "$REPO/themes/active" ]; then
-    echo "  no active theme, defaulting to $DEFAULT_THEME"
-    ln -sfn "$REPO/themes/$DEFAULT_THEME" "$REPO/themes/active"
+link "$REPO/configs/sway"                        ~/.config/sway
+link "$REPO/configs/waybar/config"               ~/.config/waybar/config
+link "$REPO/configs/gtklock/style.css"           ~/.config/gtklock/style.css
+link "$REPO/configs/wofi/config"                 ~/.config/wofi/config
+link "$REPO/scripts"                             ~/.config/scripts
+
+echo "--- Applying theme ---"
+
+# Use the last applied theme, defaulting to flexoki-dark
+THEME="flexoki-dark"
+if [ -f ~/.config/themes/current ]; then
+    THEME="$(cat ~/.config/themes/current)"
 fi
 
-link "$REPO/configs/sway"              ~/.config/sway
-link "$REPO/configs/waybar/config"     ~/.config/waybar/config
-link "$REPO/configs/waybar/style.css"  ~/.config/waybar/style.css
-link "$REPO/configs/gtklock/style.css" ~/.config/gtklock/style.css
-link "$REPO/scripts"                   ~/.config/scripts
-link "$REPO/configs/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
-link "$REPO/configs/wofi/config"       ~/.config/wofi/config
-# Generate combined wofi CSS (wofi uses load_from_data so @import paths break)
-{ cat "$REPO/themes/active/wofi.css"; grep -v '@import' "$REPO/configs/wofi/style.css"; } > ~/.config/wofi/style.css
-echo "  generated ~/.config/wofi/style.css"
-link "$REPO/configs/gtklock/theme.css"  ~/.config/gtklock/theme.css
-link "$REPO/themes"                    ~/.config/themes
-link "$REPO/themes/active/gtk-settings.ini" ~/.config/gtk-3.0/settings.ini
-link "$REPO/themes/active/gtk-settings.ini" ~/.config/gtk-4.0/settings.ini
-
-# mako config points at active theme
-ln -sf "$REPO/themes/active/mako" ~/.config/mako/config
-echo "  linked ~/.config/mako/config"
-
-# swayosd CSS points at active theme
-mkdir -p ~/.config/swayosd
-ln -sf "$REPO/themes/active/swayosd.css" ~/.config/swayosd/style.css
-echo "  linked ~/.config/swayosd/style.css"
+"$REPO/scripts/switch-theme.sh" "$THEME"
 
 echo "--- Done! ---"

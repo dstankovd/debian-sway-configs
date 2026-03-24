@@ -2,62 +2,76 @@
 
 REPO="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)"
 THEMES="$REPO/themes"
+TEMPLATES="$THEMES/templates"
 
 if [ -z "$1" ]; then
     echo "Usage: switch-theme.sh <theme-name>"
     echo "Available themes:"
-    ls "$THEMES" | grep -v '^active$'
+    ls "$THEMES" | grep -Ev '^templates$'
     exit 1
 fi
 
 THEME="$1"
+COLORS="$THEMES/$THEME/colors.sh"
 
-if [ ! -d "$THEMES/$THEME" ]; then
+if [ ! -f "$COLORS" ]; then
     echo "Error: theme '$THEME' not found in $THEMES"
     exit 1
 fi
 
 echo "Switching to theme: $THEME"
 
-# Update active symlink
-ln -sfn "$THEMES/$THEME" "$THEMES/active"
+# Load color variables into the environment
+set -a
+# shellcheck source=/dev/null
+source "$COLORS"
+set +a
 
-# Update mako config symlink
-ln -sf "$THEMES/active/mako" ~/.config/mako/config
+render() { envsubst < "$TEMPLATES/$1"; }
 
-# Update swayosd theme symlink and restart server to reload CSS
-mkdir -p ~/.config/swayosd
-ln -sf "$THEMES/active/swayosd.css" ~/.config/swayosd/style.css
-pkill -x swayosd-server 2>/dev/null; swayosd-server &
+# Generate all theme-specific configs directly to ~/.config/
+mkdir -p ~/.config/mako \
+         ~/.config/swayosd \
+         ~/.config/gtklock \
+         ~/.config/waybar \
+         ~/.config/wofi \
+         ~/.config/sway \
+         ~/.config/alacritty \
+         ~/.config/foot \
+         ~/.config/gtk-3.0 \
+         ~/.config/gtk-4.0
 
-# Update gtklock theme symlink
-ln -sfn "$THEMES/active/gtklock.css" "$REPO/configs/gtklock/theme.css"
+render mako             > ~/.config/mako/config
+render swayosd.css      > ~/.config/swayosd/style.css
+render gtklock.css      > ~/.config/gtklock/theme.css
+render waybar.css       > ~/.config/waybar/style.css
+render wofi.css         > ~/.config/wofi/style.css
+render sway             > ~/.config/sway/colors
+rm -f ~/.config/alacritty/alacritty.toml && render alacritty.toml > ~/.config/alacritty/alacritty.toml
+rm -f ~/.config/foot/foot.ini            && render foot.ini       > ~/.config/foot/foot.ini
+render gtk-settings.ini > ~/.config/gtk-3.0/settings.ini
+render gtk-settings.ini > ~/.config/gtk-4.0/settings.ini
 
-# Generate combined wofi CSS (wofi uses load_from_data so @import paths break)
-{ cat "$THEMES/active/wofi.css"; grep -v '@import' "$REPO/configs/wofi/style.css"; } > ~/.config/wofi/style.css
+# Track active theme
+mkdir -p ~/.config/themes
+echo "$THEME" > ~/.config/themes/current
 
-# Apply GTK settings live via gsettings (affects running apps immediately)
-GTK_INI="$THEMES/active/gtk-settings.ini"
-if [ -f "$GTK_INI" ]; then
-    GTK_THEME=$(awk -F'=' '/^gtk-theme-name/{gsub(/ /,"",$2); print $2}' "$GTK_INI")
-    PREFER_DARK=$(awk -F'=' '/^gtk-application-prefer-dark-theme/{gsub(/ /,"",$2); print $2}' "$GTK_INI")
-    GTK_FONT=$(awk -F'=' '/^gtk-font-name/{sub(/^[[:space:]]*/,"",$2); print $2}' "$GTK_INI")
-    [ -n "$GTK_THEME" ] && gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
-    [ -n "$GTK_FONT" ]  && gsettings set org.gnome.desktop.interface font-name "$GTK_FONT"
-    if [ "$PREFER_DARK" = "1" ]; then
-        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-    else
-        gsettings set org.gnome.desktop.interface color-scheme 'default'
-    fi
+# Apply GTK settings live (affects running apps immediately)
+[ -n "$GTK_THEME" ] && gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
+[ -n "$GTK_FONT" ] && gsettings set org.gnome.desktop.interface font-name "$GTK_FONT"
+if [ "$GTK_COLOR_SCHEME" = "prefer-dark" ]; then
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+else
+    gsettings set org.gnome.desktop.interface color-scheme 'default'
 fi
 
-# Trigger alacritty config reload in all open windows
-touch ~/.config/alacritty/alacritty.toml
-
 # Reload sway (exec_always in startup handles waybar restart)
-swaymsg reload
+swaymsg reload 2>/dev/null || true
 
 # Reload mako
-makoctl reload
+makoctl reload 2>/dev/null || true
+
+# Restart swayosd with new theme
+pkill -x swayosd-server 2>/dev/null; swayosd-server &
 
 echo "Done."

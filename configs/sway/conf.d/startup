@@ -1,5 +1,5 @@
 ### Startup applications
 
-exec_always pkill -x waybar; waybar
+exec_always sh -c 'pkill -x waybar 2>/dev/null; sleep 0.5; waybar'
 exec mako
-exec_always pkill -x swayosd-server; swayosd-server
+exec_always sh -c 'pkill -x swayosd-server 2>/dev/null; sleep 0.5; swayosd-server'
