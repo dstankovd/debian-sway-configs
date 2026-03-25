@@ -20,6 +20,13 @@ for_window [title="Power Profile"] {
     move position center
 }
 
+# Power menu — small centered floating window
+for_window [title="Power Menu"] {
+    floating enable
+    resize set 340 px 140 px
+    move position center
+}
+
 # Inhibit idle when media apps are fullscreen (Wayland protocol-level)
 for_window [app_id="firefox"]  inhibit_idle fullscreen
 for_window [app_id="chromium"] inhibit_idle fullscreen
