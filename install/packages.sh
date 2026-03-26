@@ -25,10 +25,8 @@ sudo apt install -y pavucontrol brightnessctl playerctl thunar libnotify-bin pow
 echo "Installing fonts..."
 sudo apt install -y fonts-cascadia-code fonts-noto-color-emoji
 
-echo "Configuring lid close (suspend on lid close)..."
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
-sudo mkdir -p /etc/systemd/logind.conf.d
-sudo cp "$REPO/configs/logind/lid.conf" /etc/systemd/logind.conf.d/lid.conf
+echo "Installing fastfetch..."
+sudo apt install -y fastfetch
 
 sudo apt autoremove -y
 

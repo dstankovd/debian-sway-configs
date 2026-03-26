@@ -7,8 +7,8 @@
 }
 
 window#waybar {
-    background-color: rgba(26, 27, 38, 0.85);
-    color: #c0caf5;
+    background-color: rgba(18, 18, 18, 0.85);
+    color: #bebebe;
 }
 
 /* ── Workspaces ── */
@@ -24,38 +24,38 @@ window#waybar {
     box-shadow: none;
     min-width: 0;
     padding: 0 5px;
-    color: #444b6a;
+    color: #4d4d4d;
 }
 
 #workspaces button:not(.empty):not(.focused) {
-    color: #737aa2;
+    color: #9e9ea0;
 }
 
 #workspaces button.focused {
-    color: #c0caf5;
+    color: #bebebe;
 }
 
 #workspaces button.urgent {
-    color: #f7768e;
+    color: #D35F5F;
 }
 
 /* ── Sep + Window title ── */
 
 #custom-sep {
     padding: 0 4px;
-    color: #32344a;
+    color: #333333;
 }
 
 #window {
     font-size: 13px;
-    color: #565f89;
+    color: #8a8a8d;
 }
 
 /* ── Clock ── */
 
 #clock {
     font-size: 14px;
-    color: #a9b1d6;
+    color: #ababab;
 }
 
 /* ── Media ── */
@@ -64,11 +64,11 @@ window#waybar {
     padding: 0 8px;
     font-size: 13px;
     font-style: italic;
-    color: #737aa2;
+    color: #9e9ea0;
 }
 
 #mpris.paused {
-    color: #565f89;
+    color: #8a8a8d;
 }
 
 /* ── Right modules ── */
@@ -81,7 +81,7 @@ window#waybar {
 #language,
 #battery {
     padding: 0 8px;
-    color: #737aa2;
+    color: #9e9ea0;
 }
 
 #cpu label,
@@ -89,21 +89,21 @@ window#waybar {
 #pulseaudio label,
 #backlight label,
 #battery label {
-    color: #565f89;
+    color: #8a8a8d;
 }
 
 #pulseaudio.muted {
-    color: #444b6a;
+    color: #4d4d4d;
 }
 
 #battery.charging {
-    color: #9ece6a;
+    color: #FFC107;
 }
 
 #battery.critical:not(.charging) {
-    color: #f7768e;
+    color: #D35F5F;
 }
 
 #network.disconnected {
-    color: #f7768e;
+    color: #D35F5F;
 }
