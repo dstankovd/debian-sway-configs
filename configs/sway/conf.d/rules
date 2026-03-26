@@ -6,10 +6,10 @@
 for_window [app_id=".*"] border pixel 1
 for_window [class=".*"] border pixel 1
 
-# Theme picker — small centered floating window
+# Theme picker — centered floating window (sized for ~19 themes)
 for_window [title="Change theme"] {
     floating enable
-    resize set 340 px 110 px
+    resize set 340 px 460 px
     move position center
 }
 

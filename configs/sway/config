@@ -9,4 +9,5 @@ set $menu wofi --show drun --style $HOME/.config/wofi/style.css
 
 include /etc/sway/config-vars.d/*
 include ~/.config/sway/conf.d/*
+include ~/.config/sway/wallpaper
 include /etc/sway/config.d/*

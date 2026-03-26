@@ -56,9 +56,15 @@ render gtk-settings.ini > ~/.config/gtk-4.0/settings.ini
 mkdir -p ~/.config/themes
 echo "$THEME" > ~/.config/themes/current
 
+# Apply wallpaper
+WALLPAPER_PATH="$THEMES/$THEME/wallpaper"
+if [ -e "$WALLPAPER_PATH" ]; then
+    swaymsg "output * bg $WALLPAPER_PATH fill" 2>/dev/null || true
+    echo "output * bg $WALLPAPER_PATH fill" > ~/.config/sway/wallpaper
+fi
+
 # Apply GTK settings live (affects running apps immediately)
 [ -n "$GTK_THEME" ] && gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
-[ -n "$GTK_FONT" ] && gsettings set org.gnome.desktop.interface font-name "$GTK_FONT"
 if [ "$GTK_COLOR_SCHEME" = "prefer-dark" ]; then
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 else
