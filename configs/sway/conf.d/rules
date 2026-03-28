@@ -20,6 +20,13 @@ for_window [title="Power Profile"] {
     move position center
 }
 
+# Keybindings reference — centered floating window
+for_window [title="Keybindings"] {
+    floating enable
+    resize set 620 px 680 px
+    move position center
+}
+
 # Power menu — small centered floating window
 for_window [title="Power Menu"] {
     floating enable

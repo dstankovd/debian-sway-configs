@@ -20,9 +20,10 @@ echo "--- Linking configs ---"
 
 link "$REPO/configs/sway"                        ~/.config/sway
 link "$REPO/configs/waybar/config"               ~/.config/waybar/config
-link "$REPO/configs/gtklock/style.css"           ~/.config/gtklock/style.css
 link "$REPO/configs/wofi/config"                 ~/.config/wofi/config
+link "$REPO/configs/starship/starship.toml"      ~/.config/starship.toml
 link "$REPO/scripts"                             ~/.config/scripts
+link "$REPO/configs/bash/bashrc"                 ~/.bashrc
 
 echo "--- Applying theme ---"
 

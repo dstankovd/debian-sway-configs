@@ -1,7 +1,7 @@
 font pango:Cascadia Mono 10
 
 # client.<state>  <border>      <background>  <text>       <indicator>   <child_border>
-client.focused          #e68e0d  #121212  #bebebe   #e68e0d  #e68e0d
-client.focused_inactive #333333 #121212  #8a8a8d  #333333 #333333
-client.unfocused        #222222 #121212  #8a8a8d  #222222 #222222
-client.urgent           #D35F5F     #121212  #bebebe   #D35F5F     #D35F5F
+client.focused          #AD8301  #1C1B1A  #CECDC3   #AD8301  #AD8301
+client.focused_inactive #343331 #1C1B1A  #575653  #343331 #343331
+client.unfocused        #282726 #1C1B1A  #575653  #282726 #282726
+client.urgent           #AF3029     #1C1B1A  #CECDC3   #AF3029     #AF3029

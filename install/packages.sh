@@ -17,7 +17,7 @@ echo "Installing Wayland UI utilities..."
 sudo apt install -y waybar wofi mako-notifier alacritty gnome-themes-extra swayosd
 
 echo "Installing screenshot and clipboard tools..."
-sudo apt install -y grim slurp wl-clipboard
+sudo apt install -y grim slurp wl-clipboard swappy
 
 echo "Installing system controls..."
 sudo apt install -y pavucontrol brightnessctl playerctl thunar libnotify-bin power-profiles-daemon
@@ -27,6 +27,9 @@ sudo apt install -y fonts-cascadia-code fonts-noto-color-emoji
 
 echo "Installing fastfetch..."
 sudo apt install -y fastfetch
+
+echo "Installing shell tools..."
+sudo apt install -y starship eza
 
 sudo apt autoremove -y
 

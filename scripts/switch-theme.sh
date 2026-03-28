@@ -43,7 +43,7 @@ mkdir -p ~/.config/mako \
 
 render mako             > ~/.config/mako/config
 render swayosd.css      > ~/.config/swayosd/style.css
-render gtklock.css      > ~/.config/gtklock/theme.css
+render gtklock.css      > ~/.config/gtklock/style.css
 render waybar.css       > ~/.config/waybar/style.css
 render wofi.css         > ~/.config/wofi/style.css
 render sway             > ~/.config/sway/colors
