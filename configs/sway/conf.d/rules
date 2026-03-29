@@ -30,7 +30,7 @@ for_window [title="Keybindings"] {
 # Power menu — small centered floating window
 for_window [title="Power Menu"] {
     floating enable
-    resize set 340 px 140 px
+    resize set 340 px 170 px
     move position center
 }
 

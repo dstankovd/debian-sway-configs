@@ -1,7 +1,7 @@
 #!/bin/bash
 
-options=(suspend hibernate shutdown)
-labels=("Suspend" "Hibernate" "Shutdown")
+options=(suspend hibernate reboot shutdown)
+labels=("Suspend" "Hibernate" "Reboot" "Shutdown")
 
 # ANSI colors (uses terminal palette — auto-matches active theme)
 BOLD='\e[1;37m'
@@ -50,9 +50,10 @@ while true; do
             tput cnorm
             clear
             case "$chosen" in
-                suspend)  exec systemctl suspend ;;
+                suspend)   exec systemctl suspend ;;
                 hibernate) exec systemctl hibernate ;;
-                shutdown) exec systemctl poweroff ;;
+                reboot)    exec systemctl reboot ;;
+                shutdown)  exec systemctl poweroff ;;
             esac
             ;;
         $'\x1b')  # Escape

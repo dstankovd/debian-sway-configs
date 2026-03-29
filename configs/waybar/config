@@ -40,7 +40,7 @@
 
     "mpris": {
         "format": "{artist} — {title}",
-        "format-paused": "{artist} — {title}",
+        "format-paused": "",
         "format-stopped": "",
         "max-length": 45,
         "tooltip": false
